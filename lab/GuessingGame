@@ -1,0 +1,34 @@
+import java.util.*;
+public class GuessingGame {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		int guess;
+		int upperBound=100;
+		int lowerBound=1;
+		int step=0;
+		int choise=1;
+		while(choise!=0){
+			step++;
+			guess=(upperBound+lowerBound)/2;
+			 System.out.printf("Guessing:%d (0:right guess 1:my number is lower 2:my number is higher):",guess);
+			 choise=input.nextInt();
+			if(choise==1){
+				upperBound=guess;
+			}
+			else if(choise==2){
+				lowerBound=guess;
+			}
+			else if(choise==0){
+				System.out.printf("Found %d at %d iterations\n",guess,step);
+			}
+			else{
+				System.out.println("Wrong choise");
+				System.exit(-1);
+			}
+		}
+		
+		
+
+	}
+
+}
