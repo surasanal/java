@@ -1,0 +1,103 @@
+//Circle class
+
+public class Circle {
+	private double radius;
+	public Circle(){
+		radius=0;
+	}
+	public Circle(double r){
+		radius=r;
+	}
+	public double getRadius(){
+		return radius;
+	}
+	public void setRadius(double r){
+		radius=r;
+	}
+	public double getArea(){
+		return Math.PI*radius*radius;
+	}
+	public double getPerimeter(){
+		return Math.PI*2*radius;
+	}
+	public int compareArea(Square square){
+		if(getArea()<square.getArea()){
+			return 1;
+		}
+		else if(getArea()>square.getArea()){
+			return 0;
+		}
+		else return -1;
+	}
+}
+
+//Square class
+
+public class Square {
+	private double length;
+	public Square(){
+		length=0;
+	}
+	public Square(double le){
+		length=le;
+	}
+	public double getLength(){
+		return length;
+	}
+	public void setLength(double le){
+		length=le;
+	}
+	public double getArea(){
+		return length*length;
+	}
+	public double getPerimeter(){
+		return 4*length;
+	}
+	
+}
+
+
+//Test class
+
+import java.util.*;
+public class CircleSquareTest {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		Circle cc=new Circle();
+		Square ss=new Square();
+		int selection;
+		double radius;
+		double length;
+		while(true){
+		System.out.println("Welcome to Circle/Square Tester. Please select an entry from menu: ");
+		System.out.printf("\n1 - Modify a circle object\n2 - Modify a square object\n3 - Compare square and circle\n4 - Exit");
+		selection=input.nextInt();
+		if(selection==1){
+			System.out.println("Enter radius:");
+			radius=input.nextDouble();
+			cc.setRadius(radius);
+		}
+		else if(selection==2){
+			System.out.println("Enter length:");
+			length=input.nextDouble();
+			ss.setLength(length);
+			
+		}
+		else if(selection==3){
+			System.out.printf("Circle area=%f Square area=%f\n",cc.getArea(),ss.getArea());
+			int result=cc.compareArea(ss);
+			if(result==1){
+				System.out.println("Square is bigger than circle!");
+			}
+			else if(result==0){
+				System.out.println("Circle is bigger than square!");
+			}
+			else 
+				System.out.println("Circle and Square are equal!");
+		}
+	}
+		
+	}
+
+}
+
