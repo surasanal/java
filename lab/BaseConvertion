@@ -5,7 +5,6 @@ public class BaseConvertion {
 		int number1=0;
 		int number2=0;
 		int temp;
-		int digit=1;
 		Scanner input=new Scanner(System.in);
 		System.out.printf("Base Conventer Program\n1-Convert from base 10 to base 2\n2-Convert from base 2 to base 10\n3-Exit\n");
 		System.out.println("Please chose an item");
@@ -15,9 +14,9 @@ public class BaseConvertion {
 			number1=input.nextInt();
 			temp=number1;
 			while(temp>0){
-				number2=number2+(temp%2)*digit;
+				number2=number2*10;
+				number2=number2+temp%2;
 				temp=temp/2;
-				digit=digit*10;
 			}
 			System.out.println(+number1+" in base 2 = "+number2);
 			
@@ -27,9 +26,9 @@ public class BaseConvertion {
 			number1=input.nextInt();
 			temp=number1;
 			while(temp>0){
-				number2=number2+(temp%10)*digit;
+				number2=number2*2;
+				number2=number2+temp%10;
 				temp=temp/10;
-				digit=digit*2;
 			}
 			System.out.println(+number1+" in base 10 = "+number2);
 		}
