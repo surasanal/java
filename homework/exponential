@@ -1,0 +1,26 @@
+import java.util.*;
+public class exponential {
+	public static void main(String[] args) {
+		double adim,sonuc=1;
+		int x;
+		Scanner input=new Scanner(System.in);	
+		System.out.println("Adim sayisini giriniz:");
+		adim=input.nextInt();
+		System.out.println("x degerini giriniz:");
+		x=input.nextInt();
+		for(int i=1;i<adim;i++)
+		{
+			sonuc=sonuc+Math.pow(x,i)/faktoriyel(i);
+		}
+		System.out.println(sonuc);
+		}
+
+public static int faktoriyel(int a){
+	int carpim=1;
+	for(int i=1;i<=a;i++)
+	{
+		carpim=carpim*i;
+	}
+	return carpim;
+}
+	}
