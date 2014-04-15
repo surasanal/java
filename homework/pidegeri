@@ -1,0 +1,29 @@
+
+public class piDegeri {
+	public static void main(String[] args) {
+		double pi,toplam1=0.0,toplam2=0.0;
+		int sayac=0;
+		
+		for(double i=1;i<1000000;i=i+4)//3.14159 sayisini kacıncı adımda bulunacagın
+		{
+			toplam1=toplam1+4/i;
+			toplam2=toplam2+4/(i+2);
+			pi=toplam1-toplam2;
+			sayac=sayac+1;
+			if(pi>=3.14159)
+			{
+				System.out.println(+sayac+"adim gecmesi gerekir.");
+				break;
+			}
+		}
+		for(double i=1;i<1000000;i=i+4)//200000.adimdaki pi degeri
+		{
+			toplam1=toplam1+4/i;
+			toplam2=toplam2+4/(i+2);
+			pi=toplam1-toplam2;
+		pi=toplam1-toplam2;
+		System.out.println("pi="+pi);
+
+	}
+
+}
