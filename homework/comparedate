@@ -1,0 +1,106 @@
+//Date class
+
+import java.util.*;
+public class Date {
+	Scanner input=new Scanner(System.in);
+	private int day;
+	private int month;
+	private int year;
+	public String getDate(){
+		String a,b,c,d;
+		a=Integer.toString(getDay());
+		b=Integer.toString(getMonth());
+		c=Integer.toString(getYear());
+		d=a+b+c;
+		return d;
+	}
+	
+	public Date(){
+	
+		
+	}
+	
+	public Date(int theday,int themonth,int theyear){
+		setDay(theday);
+		setMonth(themonth);
+		setYear(theyear);
+	}
+	
+	public int getDay() {
+		return day;
+	}
+	public void setDay(int day) {
+		while(day>31 || day<1){
+			System.out.println("Yanlış deger girdiniz!Gun degerini giriniz:");
+			day=input.nextInt();
+		}
+				this.day = day;
+	}
+	public int getMonth() {
+		return month;
+	}
+	public void setMonth(int month) {
+		while(month>12 || month<1){
+			System.out.println("Yanlis deger girdiniz!Ay degerini giriniz:");
+			month=input.nextInt();
+		}
+			this.month = month;
+	}
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year = year;
+	}	
+
+	public Boolean isBigger(Date date){
+		if(this.year>date.year){
+			System.out.println("Girilen tarih buyuktur.");
+			return true;
+		}
+		else if((this.year==date.year)&&(this.month>date.month)){
+			System.out.println("Girilen tarih buyuktur.");
+			return true;
+		}
+		else if((this.year==date.year)&&(this.month==date.month)&&(this.day>date.day)){
+			System.out.println("Girilen tarih buyuktur.");
+			return true;
+		}
+		else{
+			System.out.println("Girilen tarih kucuktur.");
+			return false;
+		}
+		}
+		
+	}
+	
+	
+	
+	//Test class
+	
+import java.util.*;
+public class dateTest {
+	public static void main(String[] args) {
+		int gun,ay,yil;
+		Scanner input=new Scanner(System.in);
+		Date date1=new Date();
+		Date date2=new Date();
+		System.out.println("Gun degerini giriniz:");
+		gun=input.nextInt();
+		date1.setDay(gun);
+		System.out.println("Ay degerini giriniz:");
+		ay=input.nextInt();
+		date1.setMonth(ay);
+		System.out.println("Yil degerini giriniz:");
+		yil=input.nextInt();
+		date1.setYear(yil);
+		date2.setDay(14);
+		date2.setMonth(01);
+		date2.setYear(2014);
+		date1.isBigger(date2);
+	}
+
+}
+
+
+
