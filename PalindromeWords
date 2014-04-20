@@ -1,0 +1,21 @@
+import java.util.*;
+public class PalindromeWords {
+	public static void main(String[] args) {
+		String kelime;
+		boolean polindrome=true;
+		Scanner input=new Scanner(System.in);
+		System.out.println("Kelime giriniz:");
+		kelime=input.next();
+		for(int i=0;i<kelime.length();i++){
+		if(kelime.charAt(i)!=kelime.charAt(kelime.length()-i-1)){
+		polindrome=false;
+		break;
+		}
+		}
+		if(polindrome==true)
+		System.out.println("Polindrome kelime");
+		else
+		System.out.println("Polindrome kelime değildir.");
+	}
+
+}
