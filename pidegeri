@@ -1,4 +1,3 @@
-
 public class piDegeri {
 	public static void main(String[] args) {
 		double pi,toplam1=0.0,toplam2=0.0;
