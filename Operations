@@ -1,0 +1,118 @@
+// Operation class
+
+
+import java.util.Random;
+public class Operations {
+	public enum CoinState{HEADS, TAILS};
+	
+	public boolean isMultiple(int x,int y){
+		return x%y==0;
+	}
+	
+	 public double Hypotenuse(double a, double b){
+		 return Math.sqrt(a*a+b*b);
+		 
+	 }
+	 
+	 public  void squareOfAsterisks(int n)
+	    {
+	        for(int i=0;i<n;i++)
+	        {
+	            for(int j=0;j<n;j++)
+	                System.out.print("*");
+	            System.out.println();
+	        }
+	    }
+	 public int reverseDigits(int number){
+		 int reversed=0;
+		 while(number>0){
+			 reversed=reversed*10;
+		 	 reversed=reversed+(number%10);
+		 	 number=number/10;
+		 }
+		 return reversed;
+	 }
+	  public static CoinState flip(){
+		  Random rnd=new Random();
+		  if(rnd.nextInt(2)==0)
+			  return CoinState.HEADS;
+		  else
+			  return CoinState.TAILS;
+		  
+	  }
+
+}
+
+
+
+
+
+//Test class
+
+
+import java.util.*;
+public class OperationsTest {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		Operations opr=new Operations();
+		int secim = 0;
+		while(true){
+		printMenu();
+		secim=input.nextInt();
+		
+		if(secim==1){
+				int x,y;
+				System.out.println("1.sayiyi giriniz:");
+				x=input.nextInt();
+				System.out.println("2.sayiyi giriniz:");
+				y=input.nextInt();
+				if(opr.isMultiple(x, y))
+					System.out.printf("%d %d'nin katıdır.\n", x, y);
+				else 
+					System.out.printf("%d %d'nin katı değildir.\n", x, y);		
+		}
+	
+		if(secim==2){
+				double nmb1,nmb2;
+				System.out.println("Keanar giriniz:");
+				nmb1=input.nextDouble();
+				System.out.println("Diğer kenarı giriniz:");
+				nmb2=input.nextDouble();
+				System.out.printf("Üçgenin hipotenüsü:%f\n",opr.Hypotenuse(nmb1, nmb2));
+		}
+		if(secim==3){
+				int sayi;
+                System.out.print("Syıyı giriniz: ");
+                sayi = input.nextInt();
+                System.out.printf("%d in reversed order is %d\n", sayi, opr.reverseDigits(sayi));
+		}
+		if(secim==4){
+				if(Operations.flip()==Operations.CoinState.HEADS)
+					System.out.println("Paraniz tura geldi");
+				else
+					System.out.println("Paraniz yazı geldi");
+				break;
+		}
+		if(secim==5)
+				opr.squareOfAsterisks(5);
+		
+		if(secim==6){
+				System.out.println("Çıkış yapıldı.");
+				System.exit(-1);
+		}
+		}
+	}
+	public static void printMenu() {
+        System.out.println("MENU");
+        System.out.println("1)isMultiple");
+        System.out.println("2)Hypotenuse");
+        System.out.println("3)Reversing Digits");
+        System.out.println("4)Coin Tossing");
+        System.out.println("5-squareOfAsterisks");
+        System.out.println("6)Exit");
+        System.out.println("Choice: ");
+    }
+
+}
+
+
