@@ -1,0 +1,64 @@
+import java.util.*;
+public class Recursive {
+        public static void main(String[] args) {
+                Scanner input=new Scanner(System.in);
+                int N;
+                int ebob1,ebob2;
+                int[] array={1,2,3,4,5};
+                System.out.println("N degerini giriniz:");
+                N=input.nextInt();
+                System.out.println(N+" değerinin toplamı:"+sumofnumber(N));
+                System.out.println(N+" değerinin faktöriyeli:"+factorial(N));
+                System.out.println("Dizi elemanlarının toplamı:"+sumofarray(array,array.length-1));
+                System.out.println("Dizi elemanlarının toplamı:"+sumofarray(array));
+                System.out.println("Ebobu alınacak sayıları giriniz:");
+                ebob1==input.nextInt();
+                ebob2==input.nextInt();
+                System.out.println(gcd(ebob1,ebob2));
+
+
+
+        }
+        public static int sumofnumber(int n){
+                if(n<=1)
+                        return 1;
+
+                return n+sumofnumber(n-1);
+        }
+
+
+
+        public static int factorial(int n){
+                if(n<=1)
+                        return 1;
+
+                return n*factorial(n-1);
+        }
+
+
+        public static int sumofarray(int[] dizi,int n){
+                if(n==0)
+                        return dizi[0];
+                return dizi[n]+sumofarray(dizi,n-1);				
+        }
+
+        public static int sumofarray(int[] dizi){
+                int[] temparray=new int[dizi.length-1];
+                for(int i=0;i<dizi.length-1;i++)
+                        temparray[i]=dizi[i];
+                if(dizi.length==1)
+                        return dizi[0];
+                return dizi[dizi.length-1]+sumofarray(temparray);
+
+        }
+
+
+        public static int gcd(int n,int m){
+                if(m==0)
+                        return n;
+                return gcd(m,n%m);
+
+
+        }
+
+}
